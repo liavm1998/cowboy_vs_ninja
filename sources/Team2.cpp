@@ -34,6 +34,8 @@ namespace ariel{
         }
     }
     void Team2::print(){
-        cout << "implement me" << endl;
+        for(auto* character:this->getMembers()){
+            cout << character->print() <<endl;
+        }
     }
 }

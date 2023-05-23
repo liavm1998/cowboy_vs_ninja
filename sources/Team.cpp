@@ -93,7 +93,14 @@ namespace ariel{
     }
     void Team::print(){
         for(auto* character:this->members){
-            cout << character->print() <<endl;
+            if(Cowboy* cowboy = dynamic_cast<Cowboy*>(character)){
+                cout << cowboy->print() << endl;
+            }
+        }
+        for(auto* character:this->members){
+            if(Ninja* ninja = dynamic_cast<Ninja*>(character)){
+                cout << ninja->print() << endl;
+            }
         }
     }
 
