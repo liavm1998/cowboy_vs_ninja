@@ -455,8 +455,8 @@ TEST_SUITE("Battle simulations") {
         auto old_ninja = create_oninja(2, 2);
         auto young_ninja2 = create_yninja(3, 3);
         auto cowboy = create_cowboy(-6, -6);
-	    auto cowboy2 = create_cowboy(-7, -7);
-	    auto cowboy3 = create_cowboy(-8, -8);
+	auto cowboy2 = create_cowboy(-7, -7);
+	auto cowboy3 = create_cowboy(-8, -8);
         Team team2{young_ninja};
         team2.add(trained_ninja);
         team2.add(old_ninja);
@@ -502,10 +502,10 @@ TEST_SUITE("Battle simulations") {
         auto team_c1 = create_cowboy(0, 0);
         auto team2_c1 = create_cowboy(-2, 0);
         auto team_c2 = create_cowboy(-3, 0);
-        auto team2_c2 = create_cowboy(1, 0);// dead
-        auto team2_c3 = create_cowboy(3, 0);// kill
+        auto team2_c2 = create_cowboy(1, 0);//
+        auto team2_c3 = create_cowboy(3, 0);//
         auto team_c3 = create_cowboy(5, 0);//
-        auto team2_c4 = create_cowboy(-5, 0); // dead
+        auto team2_c4 = create_cowboy(-5, 0);
 
         Team team1{team_c1};
         team1.add(team_c2);
@@ -532,12 +532,10 @@ TEST_SUITE("Battle simulations") {
         }
 
         CHECK((!team2_c2->isAlive() && team2_c1->isAlive() && !team2_c3->isAlive() && team2_c4->isAlive()));
-        
-        
+
+        //Next captain should be team2_c1, hence, the next enemy to be attacked by team2 should team_cc.
         multi_attack(7, team2, team1);
-        CHECK(!team_c3->isAlive());
-        CHECK( team_c1->isAlive());
-        CHECK( !team_c2->isAlive());
+        CHECK((!team_c3->isAlive() && team_c1->isAlive() && !team_c2->isAlive()));
 
         while (team1.stillAlive() && team2.stillAlive()) {
             team1.attack(&team2);
