@@ -27,10 +27,10 @@ namespace ariel {
         }
     }
     string Ninja::print() {
-        std::string str = "Ninja ,";
-        str += std::to_string(this->getHealth());
-        str += this->getLocation().print();
-        
+        std::string str = "N, " +
+        this->getName()+" HP: " +
+        std::to_string(this->getHealth()) + "location: " +
+        this->getLocation().print();
         return str;
     };
     int Ninja::getSpeed(){

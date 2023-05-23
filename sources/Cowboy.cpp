@@ -29,9 +29,10 @@ namespace ariel {
         this->bullets = 6;
     }
     string Cowboy::print() {
-        std::string str = "Cowboy ,";
-        str += std::to_string(this->getHealth());
-        str += this->getLocation().print();  
+        std::string str = "C, " +
+        this->getName()+" HP: " +
+        std::to_string(this->getHealth()) + "location: " +
+        this->getLocation().print();
         return str;
     }
     

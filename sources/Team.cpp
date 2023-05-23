@@ -92,7 +92,9 @@ namespace ariel{
         NinjaAttack(*enemy);
     }
     void Team::print(){
-        cout << "hello" << endl;
+        for(auto* character:this->members){
+            cout << character->print() <<endl;
+        }
     }
 
     void Team::changeCaptain(){
